@@ -15,31 +15,31 @@ whisper_model = whisper.load_model("medium")
 transcript = []
 
 
-# Function to record audio
-# def record_audio(duration=5, fs=16000):
-#     print("Recording...")
-#     audio = sd.rec(int(duration * fs), samplerate=fs, channels=1, dtype="int16")
-#     sd.wait()  # Wait until recording is finished
-#     print("Recording finished.")
-#     return np.squeeze(audio)
+Function to record audio
+def record_audio(duration=5, fs=16000):
+    print("Recording...")
+    audio = sd.rec(int(duration * fs), samplerate=fs, channels=1, dtype="int16")
+    sd.wait()  # Wait until recording is finished
+    print("Recording finished.")
+    return np.squeeze(audio)
 
 
-# Function to transcribe audio with Whisper
-# def transcribe_audio(audio):
-#     print("transcribe executed")
-#     start_time = time.time()
-#     try:
-#         transcription = whisper_model.transcribe(audio)
-#         user_text = transcription["text"]
-#         print("User Query:", user_text)
+Function to transcribe audio with Whisper
+def transcribe_audio(audio):
+    print("transcribe executed")
+    start_time = time.time()
+    try:
+        transcription = whisper_model.transcribe(audio)
+        user_text = transcription["text"]
+        print("User Query:", user_text)
 
-#         return user_text
-#     except Exception as e:
-#         print("ERROR Error in Function:", str(e))
-#         return None
-#     finally:
-#         elapsed_time = time.time() - start_time
-#         print(f"time by transcribe audio: {elapsed_time:.2f} sec")
+        return user_text
+    except Exception as e:
+        print("ERROR Error in Function:", str(e))
+        return None
+    finally:
+        elapsed_time = time.time() - start_time
+        print(f"time by transcribe audio: {elapsed_time:.2f} sec")
 
 
 def get_ai_response(user_text, choice):

@@ -118,8 +118,8 @@ try:
 except FileNotFoundError:
     print("Please install ffplay (part of FFmpeg) to play the audio.")
 
-# try:
-#     print("Playing audio...")
-#     playsound(audio_filename)
-# except Exception as e:
-#     print(f"Error playing audio: {e}")
+try:
+    print("Playing audio...")
+    playsound(audio_filename)
+except Exception as e:
+    print(f"Error playing audio: {e}")
