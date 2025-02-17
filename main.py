@@ -128,3 +128,23 @@ def voice(choice, modelSelection, text_data):
         print("Invalid choice. Please select 'male', 'female'")
         return None, []
     return response_text, transcript_data
+
+import hashlib
+
+# Sample function with bad practices
+def authenticate_user(username, password):
+    # Bad: Hardcoding sensitive data (e.g., password hash)
+    stored_password_hash = "5f4dcc3b5aa765d61d8327deb882cf99"  # hash for 'password'
+    
+    # Bad: Using MD5 hash, which is insecure
+    hashed_password = hashlib.md5(password.encode()).hexdigest()
+    
+    # Bad: Not checking for SQL injection
+    if username == "admin" and hashed_password == stored_password_hash:
+        print("Login successful!")
+    else:
+        print("Login failed!")
+    
+    # Bad: Not using salt for hashing
+    return False
+
